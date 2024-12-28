@@ -3,128 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandro Sameh Boshra | Portfolio</title>
+    <title>Portfolio - Sandro Sameh</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            line-height: 1.6;
+            background: linear-gradient(to right, #f3f4f6, #dde1e7);
             color: #333;
+            overflow-x: hidden;
         }
         header {
-            background: #333;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             color: #fff;
-            padding: 20px 0;
-            text-align: center;
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 1.5s;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            animation: fadeInUp 2s ease-in-out;
         }
         header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-top: 10px;
+        width: 300px; /* Increased size */
+        height: 300px; /* Increased size */
+        animation: growAndBounce 2s ease-in-out, slideInRight 2s ease-in-out;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for a polished look */
+        transition: transform 0.3s ease;
+    }
+    header img:hover {
+        transform: scale(1.1); /* Adds a hover effect to slightly enlarge the image */
+    }
+    @keyframes growAndBounce {
+        0% {
+            transform: scale(0.8);
+            opacity: 0;
         }
-        nav {
+        50% {
+            transform: scale(1.2);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
             text-align: center;
-            padding: 10px 0;
+            margin-top: 1rem;
         }
-        nav a {
-            color: #333;
-            text-decoration: none;
+        nav ul li {
+            display: inline;
             margin: 0 15px;
-            font-weight: bold;
         }
-        nav a:hover {
-            color: #007BFF;
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
         }
         section {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 3rem 2rem;
+            animation: fadeIn 1.5s;
         }
-        h1, h2 {
-            text-align: center;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .projects, .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .project, .skill {
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: bounceIn 1s ease;
+        }
+        .project:hover, .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         footer {
             text-align: center;
-            padding: 10px 0;
-            background: #333;
+            padding: 2rem;
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
             color: #fff;
-            margin-top: 20px;
+            animation: fadeIn 2s;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            background: #2575fc;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .button:hover {
+            background: #6a11cb;
+            transform: scale(1.1);
+        }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sandro Sameh Boshra</h1>
-        <img src="sandro.jpg" alt="Sandro Sameh Boshra">
-        <p>Business Analyst</p>
-    </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<header>
+    <div>
+        <h1>Welcome to My Portfolio</h1>
+        <p>I&#39;m Sandro Sameh - Data Analyst & Scientist</p>
+    </div>
+    <img src="sandro.jpg" alt="Sandro Sameh">
+</header>
 
-    <section id="about">
+<section id="about">
+    <div class="container">
         <h2>About Me</h2>
-        <p>
-            As a motivated Level 3 Business Analytics student, I am seeking an internship opportunity to apply my skills in data analysis, statistical modeling, and predictive analytics within a dynamic organization. I aim to contribute to data-driven decision-making processes and gain hands-on experience in SQL, Python, and R. Eager to collaborate with a team of professionals, I hope to leverage my analytical abilities to support business objectives and enhance my practical knowledge in the field of business analytics.
-        </p>
-    </section>
+        <p>I am a passionate data analyst and a Level 4 student at the Egyptian Russian University in Cairo. With a strong foundation in data analytics, I specialize in Business Analytics. My academic background and hands-on project experience have equipped me with the skills to turn data into actionable insights. Additionally, I have completed internships at MCV and Depi, further solidifying my practical knowledge in SQL, Python, and R.</p>
+    </div>
+</section>
 
-    <section id="skills">
+<section id="projects">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Recent Projects</h2>
+        <div class="projects" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <!-- Sales Dashboard -->
+            <div class="project" style="background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="sales-dashboard.jpg" alt="Sales Dashboard" style="width:100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 1rem;">Sales Dashboard</h3>
+                <p>Developed a Power BI dashboard to monitor sales KPIs and provide actionable insights to stakeholders.</p>
+                <a class="button" href="https://www.linkedin.com/posts/sandro-sameh_vehicle-sales-data-analysis-project-excited-activity-7231641732956774400-NS_-?utm_source=share&utm_medium=member_desktop" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: #2575fc; color: #fff; text-decoration: none; border-radius: 5px;">Click Here</a>
+            </div>
+            <!-- HR Dashboard -->
+            <div class="project" style="background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="hr-dashboard.jpg" alt="HR Dashboard" style="width:100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 1rem;">HR Dashboard</h3>
+                <p>Created an interactive dashboard to visualize key HR metrics such as employee engagement and attrition rates.</p>
+                <a class="button" href="https://github.com/your-link-to-hr-dashboard" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: #2575fc; color: #fff; text-decoration: none; border-radius: 5px;">Click Here</a>
+            </div>
+            <!-- World Happiness Report -->
+            <div class="project" style="background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="world-happiness-report.jpg" alt="World Happiness Report" style="width:100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 1rem;">World Happiness Report</h3>
+                <p>Analyzed the 2021 World Happiness Report to identify key drivers of happiness and visualized global scores using geospatial maps.</p>
+                <a class="button" href="https://github.com/sandroo11/World-Happiness-Report-Data-Analysis" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: #2575fc; color: #fff; text-decoration: none; border-radius: 5px;">Click Here</a>
+            </div>
+            <!-- Spotify Database -->
+            <div class="project" style="background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="spotify-database.jpg" alt="Spotify Database" style="width:100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 1rem;">Spotify Database</h3>
+                <p>Performed in-depth analysis on Spotify datasets to uncover trends in music genres and popularity.</p>
+                <a class="button" href="https://github.com/sandroo11/Spotify-database-" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: #2575fc; color: #fff; text-decoration: none; border-radius: 5px;">Click Here</a>
+            </div>
+            <!-- Customer Churn Prediction -->
+            <div class="project" style="background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="customer-churn.jpg" alt="Customer Churn Prediction" style="width:100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 1rem;">Customer Churn Prediction</h3>
+                <p>Built machine learning models to predict customer churn and improve retention strategies.</p>
+                <a class="button" href="https://github.com/your-link-to-customer-churn" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: #2575fc; color: #fff; text-decoration: none; border-radius: 5px;">Click Here</a>
+            </div>
+            <!-- Average IQ Between Countries -->
+            <div class="project" style="background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+                <img src="average-iq.jpg" alt="Average IQ Between Countries" style="width:100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <h3 style="margin-top: 1rem;">Average IQ Between Countries</h3>
+                <p>Analyzed global IQ datasets to uncover differences and identify correlations with socioeconomic factors.</p>
+                <a class="button" href="https://github.com/sandroo11/Average-IQ-between-Countries-Analysis" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: #2575fc; color: #fff; text-decoration: none; border-radius: 5px;">Click Here</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="skills">
+    <div class="container">
         <h2>Skills</h2>
-        <ul>
-            <li>SQL, Python, R, Tableau, Power BI, Excel, RStudio</li>
-            <li>Data Analysis, Predictive Analysis</li>
-            <li>Analytical Thinking, Problem-Solving, Critical Thinking</li>
-            <li>Communication Skills, Time Management, Leadership</li>
-        </ul>
-    </section>
+        <div class="skills">
+            <div class="skill">
+                <h3>Hard Skills</h3>
+                <ul>
+                    <li>Python Programming</li>
+                    <li>R Programming</li>
+                    <li>SQL</li>
+                    <li>Tableau</li>
+                    <li>Power BI</li>
+                    <li>Predictive Analysis</li>
+                </ul>
+            </div>
+            <div class="skill">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Analytical Thinking</li>
+                    <li>Problem-Solving</li>
+                    <li>Critical Thinking</li>
+                    <li>Communication Skills</li>
+                    <li>Time Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li>1-month internship at MCV</li>
-            <li>6-month internship at Depi</li>
-        </ul>
-    </section>
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> sandrosameh2003@gmail.com</p>
+        <p><strong>Phone:</strong> 01202937363</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sandro-sameh/">Sandro Sameh</a></p>
+    </div>
+</section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Laptop Price Prediction:</strong> Developed predictive models using Ridge, Lasso, and Elastic Net in R.</li>
-            <li><strong>Customer Churn Prediction:</strong> Built machine learning models in Python to predict customer churn.</li>
-            <li><strong>Finance Dashboard:</strong> Created an interactive Power BI dashboard for financial insights.</li>
-            <li><strong>World Happiness Analysis:</strong> Visualized global happiness scores and provided actionable insights for policymakers.</li>
-        </ul>
-    </section>
+<footer>
+    <p>&copy; 2024 Portfolio - Sandro Sameh</p>
+</footer>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:sandrosameh2003@gmail.com">sandrosameh2003@gmail.com</a></p>
-        <p>Phone: 01202937363</p>
-    </section>
-
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-
-
-    <footer>
-        <p>&copy; 2024 Sandro Sameh Boshra. All rights reserved.</p>
-    </footer>
 </body>
 </html>
